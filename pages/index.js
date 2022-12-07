@@ -41,7 +41,7 @@ export async function getStaticProps() {
     props: {
       tractors,
     },
-    revalidate: 30, // In seconds
+    revalidate: 3600, // In seconds
   };
 }
 

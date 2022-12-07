@@ -1,14 +1,12 @@
-import React from 'react';
-
-import Line from './Line.js';
-
-import styles from './List.module.css';
+import React from "react";
+import Line from "./Line.js";
+import styles from "./List.module.css";
 
 function List({ tractors }) {
   var sayi = 1;
   return (
     <div className={styles.List}>
-      {tractors.posts
+      {tractors
         .sort((a, b) => a.Marka.localeCompare(b.Marka))
         .map((tractor) => (
           <Line
@@ -23,9 +21,7 @@ function List({ tractors }) {
             Fiyat={tractor.Fiyat}
             Muayene={tractor.Muayene_Tarihi}
             Numb={`${sayi++}-`}
-          >
-
-          </Line>
+          ></Line>
         ))}
     </div>
   );

@@ -42,14 +42,15 @@ export async function getStaticProps() {
 
   const tractors = finalList?.map((record) => ({
     _id: record?.id,
-    Marka: record?.fields.marka,
-    Model: record?.fields.model,
-    Yil: record?.fields.yil,
-    Ceker: record?.fields.ceker,
-    Ruhsat: record?.fields.ruhsat,
-    Saat: record?.fields.saat,
-    Fiyat: record?.fields.fiyat,
-    Muayene_Tarihi: record?.fields.muayene_tarihi,
+    Marka: record?.fields?.marka,
+    Model: record?.fields?.model,
+    Yil: record?.fields?.yil,
+    Ceker: record?.fields?.ceker,
+    Ruhsat: record?.fields?.ruhsat,
+    Saat: record?.fields?.saat,
+    Fiyat: record?.fields?.fiyat,
+    Muayene_Tarihi: record?.fields?.muayene_tarihi,
+    Aciklama: record?.fields?.aciklama || null,
   }));
 
   return {

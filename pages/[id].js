@@ -23,6 +23,7 @@ function HomePage(tractor) {
 }
 
 export async function getStaticPaths() {
+  const finalList = [];
   const res = await fetch(
     `https://api.airtable.com/v0/appCmWQmXtgsN2ZYW/araclar?view=Grid%20view`,
     {
@@ -30,8 +31,22 @@ export async function getStaticPaths() {
     }
   );
   const posts = await res.json();
+  finalList.push(...posts.records);
 
-  const paths = posts?.records.map((record) => ({
+  if (posts.offset) {
+    const res2 = await fetch(
+      `https://api.airtable.com/v0/appCmWQmXtgsN2ZYW/araclar?offset=${posts.offset}&view=Grid%20view`,
+      {
+        headers: { Authorization: `Bearer ${process.env.ACCESS_TOKEN}` },
+      }
+    );
+
+    const posts2 = await res2.json();
+
+    finalList.push(...posts2.records);
+  }
+
+  const paths = finalList?.map((record) => ({
     params: { id: record.id },
   }));
 

@@ -17,6 +17,7 @@ function HomePage({ tractors }) {
 }
 
 export async function getStaticProps() {
+  const finalList = [];
   const res = await fetch(
     `https://api.airtable.com/v0/appCmWQmXtgsN2ZYW/araclar?view=Grid%20view`,
     {
@@ -24,8 +25,22 @@ export async function getStaticProps() {
     }
   );
   const posts = await res.json();
+  finalList.push(...posts.records);
 
-  const tractors = await posts?.records.map((record) => ({
+  if (posts.offset) {
+    const res2 = await fetch(
+      `https://api.airtable.com/v0/appCmWQmXtgsN2ZYW/araclar?offset=${posts.offset}&view=Grid%20view`,
+      {
+        headers: { Authorization: `Bearer ${process.env.ACCESS_TOKEN}` },
+      }
+    );
+
+    const posts2 = await res2.json();
+
+    finalList.push(...posts2.records);
+  }
+
+  const tractors = finalList?.map((record) => ({
     _id: record?.id,
     Marka: record?.fields.marka,
     Model: record?.fields.model,

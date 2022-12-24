@@ -7,7 +7,7 @@ function Value({ className, ...props }) {
     <div className={styles.Value}>
       <div className={styles.Numb}>
         <div>{props?.Numb}</div>
-        <div className={className}>{props?.Value || "Belirtilmedi"}</div>
+        <div className={className}>{props?.Value || "-"}</div>
       </div>
     </div>
   );

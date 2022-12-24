@@ -12,7 +12,7 @@ function Detailsline({ className, ...props }) {
         {props?.Value ? (
           <Value className={className} Value={props?.Value} />
         ) : (
-          "Belirtilmedi"
+          "-"
         )}
       </div>
     </div>

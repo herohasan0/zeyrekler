@@ -63,7 +63,7 @@ export async function getStaticProps({ params }) {
   const post = await res.json();
 
   const tractor = {
-    _id: post?.id,
+    _id: post.id,
     Marka: post?.fields?.marka || null,
     Model: post?.fields?.model || null,
     Yil: post?.fields?.yil || null,

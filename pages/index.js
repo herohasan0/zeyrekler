@@ -41,7 +41,7 @@ export async function getStaticProps() {
   }
 
   const tractors = finalList?.map((record) => ({
-    _id: record?.id,
+    _id: record.id,
     Marka: record?.fields?.marka || null,
     Model: record?.fields?.model || null,
     Yil: record?.fields?.yil || null,

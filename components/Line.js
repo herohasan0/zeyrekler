@@ -9,24 +9,26 @@ function Line({ ...props }) {
   const size = useWindowSize();
   let currentYear = d.getFullYear();
   let currentMonth = d.getMonth() + 1;
-  let muayeneYear = parseInt(props?.Muayene.slice(6, 10));
-  let muayeneMonth = parseInt(props?.Muayene.slice(3, 5));
+  let muayeneYear = props.Muayene && parseInt(props?.Muayene.slice(6, 10));
+  let muayeneMonth = props.Muayene && parseInt(props?.Muayene.slice(3, 5));
   let check = false;
   let owner = false;
   const fiyat = props?.Fiyat;
-  const x = fiyat.toString().length;
+  const x = fiyat?.toString().length;
   const y = x - 3;
   const second = fiyat.toString().slice(y, x);
   const first = fiyat.toString().slice(0, y);
 
-  const saatValue = props?.Saat;
+  // const saatValue = props?.Saat;
 
-  let saat = "";
-  if (saatValue > 1) {
-    saat = saatValue;
-  } else {
-    saat = "";
-  }
+  // let saat = "";
+  // if (saatValue) {
+  //   if (saatValue > 1) {
+  //     saat = saatValue;
+  //   } else {
+  //     saat = "";
+  //   }
+  // }
 
   if (currentYear < muayeneYear) {
     check = true;
@@ -64,7 +66,7 @@ function Line({ ...props }) {
             <Value className={styles.Ceker} Value={props?.Ceker} />
 
             {size.width > 767 ? (
-              <Value className={styles.Saat} Value={saat} />
+              <Value className={styles.Saat} Value={props?.Saat} />
             ) : (
               ""
             )}

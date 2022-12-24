@@ -64,14 +64,14 @@ export async function getStaticProps({ params }) {
 
   const tractor = {
     _id: post?.id,
-    Marka: post?.fields?.marka,
-    Model: post?.fields?.model,
-    Yil: post?.fields?.yil,
-    Ceker: post?.fields?.ceker,
-    Ruhsat: post?.fields?.ruhsat,
-    Saat: post?.fields?.saat,
-    Fiyat: post?.fields?.fiyat,
-    Muayene_Tarihi: post?.fields?.muayene_tarihi,
+    Marka: post?.fields?.marka || null,
+    Model: post?.fields?.model || null,
+    Yil: post?.fields?.yil || null,
+    Ceker: post?.fields?.ceker || null,
+    Ruhsat: post?.fields?.ruhsat || null,
+    Saat: post?.fields?.saat || null,
+    Fiyat: post?.fields?.fiyat || 0,
+    Muayene_Tarihi: post?.fields?.muayene_tarihi || null,
     Aciklama: post?.fields?.aciklama || null,
   };
 

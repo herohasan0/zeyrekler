@@ -62,6 +62,8 @@ export async function getStaticProps({ params }) {
   );
   const post = await res.json();
 
+  console.log("post", post);
+
   const tractor = {
     _id: post?.id || null,
     Marka: post?.fields?.marka || null,
@@ -71,6 +73,7 @@ export async function getStaticProps({ params }) {
     Ruhsat: post?.fields?.ruhsat || null,
     Saat: post?.fields?.saat || null,
     Fiyat: post?.fields?.fiyat || 0,
+    Plaka: post?.fields?.plaka || 0,
     Muayene_Tarihi: post?.fields?.muayene_tarihi || null,
     Aciklama: post?.fields?.aciklama || null,
   };

@@ -50,6 +50,7 @@ export async function getStaticProps() {
     Saat: record?.fields?.saat || null,
     Fiyat: record?.fields?.fiyat || 0,
     Muayene_Tarihi: record?.fields?.muayene_tarihi || null,
+    Plaka: record?.fields?.plaka || null,
     Aciklama: record?.fields?.aciklama || null,
   }));
 

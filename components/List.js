@@ -3,24 +3,24 @@ import Line from "./Line.js";
 import styles from "./List.module.css";
 
 function List({ tractors }) {
-  var sayi = 1;
+  var numb = 1;
   return (
     <div className={styles.List}>
       {tractors
-        .sort((a, b) => a.Marka.localeCompare(b.Marka))
+        .sort((a, b) => a.Marka.localeCompare(b?.Marka))
         .map((tractor) => (
           <Line
-            key={tractor._id}
-            id={tractor._id}
-            Marka={tractor.Marka}
-            Model={tractor.Model}
-            Yil={tractor.Yil}
-            Ceker={tractor.Ceker}
-            Ruhsat={tractor.Ruhsat}
-            Saat={tractor.Saat}
-            Fiyat={tractor.Fiyat}
-            Muayene={tractor.Muayene_Tarihi}
-            Numb={`${sayi++}-`}
+            key={tractor?._id}
+            id={tractor?._id}
+            Marka={tractor?.Marka}
+            Model={tractor?.Model}
+            Yil={tractor?.Yil}
+            Ceker={tractor?.Ceker}
+            Ruhsat={tractor?.Ruhsat}
+            Saat={tractor?.Saat}
+            Fiyat={tractor?.Fiyat}
+            Muayene={tractor?.Muayene_Tarihi}
+            Numb={`${numb++}-`}
           ></Line>
         ))}
     </div>

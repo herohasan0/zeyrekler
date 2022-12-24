@@ -9,17 +9,17 @@ function Line({ ...props }) {
   const size = useWindowSize();
   let currentYear = d.getFullYear();
   let currentMonth = d.getMonth() + 1;
-  let muayeneYear = parseInt(props.Muayene.slice(6, 10));
-  let muayeneMonth = parseInt(props.Muayene.slice(3, 5));
+  let muayeneYear = parseInt(props?.Muayene.slice(6, 10));
+  let muayeneMonth = parseInt(props?.Muayene.slice(3, 5));
   let check = false;
   let owner = false;
-  const fiyat = props.Fiyat;
+  const fiyat = props?.Fiyat;
   const x = fiyat.toString().length;
   const y = x - 3;
   const second = fiyat.toString().slice(y, x);
   const first = fiyat.toString().slice(0, y);
 
-  const saatValue = props.Saat;
+  const saatValue = props?.Saat;
 
   let saat = "";
   if (saatValue > 1) {
@@ -31,9 +31,9 @@ function Line({ ...props }) {
   if (currentYear < muayeneYear) {
     check = true;
   } else if (
-    props.Muayene == "Cekme" ||
-    props.Muayene == "Çekme" ||
-    props.Muayene == "Sıfır"
+    props?.Muayene == "Cekme" ||
+    props?.Muayene == "Çekme" ||
+    props?.Muayene == "Sıfır"
   ) {
     check = true;
   } else if (currentYear == muayeneYear) {
@@ -42,12 +42,12 @@ function Line({ ...props }) {
     }
   }
 
-  if (props.Ruhsat == "İbrahim ZEYREK" || props.Ruhsat == "ZEYREKLER") {
+  if (props?.Ruhsat == "İbrahim ZEYREK" || props?.Ruhsat == "ZEYREKLER") {
     owner = true;
   }
 
   return (
-    <Link href="/[id]" as={props.id}>
+    <Link href="/[id]" as={props?.id}>
       <a>
         <div className={!owner ? styles.Blue : styles.None}>
           <div
@@ -56,12 +56,12 @@ function Line({ ...props }) {
           >
             <Value
               className={styles.Marka}
-              Value={props.Marka}
-              Numb={props.Numb}
+              Value={props?.Marka}
+              Numb={props?.Numb}
             />
-            <Value className={styles.Model} Value={props.Model} />
-            <Value className={styles.Yil} Value={props.Yil} />
-            <Value className={styles.Ceker} Value={props.Ceker} />
+            <Value className={styles.Model} Value={props?.Model} />
+            <Value className={styles.Yil} Value={props?.Yil} />
+            <Value className={styles.Ceker} Value={props?.Ceker} />
 
             {size.width > 767 ? (
               <Value className={styles.Saat} Value={saat} />

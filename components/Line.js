@@ -42,7 +42,7 @@ function Line({ ...props }) {
     }
   }
 
-  if (props?.Ruhsat == "İbrahim ZEYREK" || props?.Ruhsat == "ZEYREKLER") {
+  if (props?.Ruhsat == "İBRAHİM ZEYREK" || props?.Ruhsat == "ZEYREKLER") {
     owner = true;
   }
 

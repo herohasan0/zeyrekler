@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "postcss-custom-media": "^7.0.8",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "^7.0.2",
     "postcss-nested": "^4.2.2",
     "postcss-preset-env": "^6.7.0",
     "style-loader": "^1.2.1"

@@ -1,35 +1,32 @@
 import React from "react";
 import Detailsline from "./Detailsline";
 import styles from "./Details.module.css";
+import { useRouter } from "next/router";
 
-function Details({ tractor }) {
+function Details() {
+  const router = useRouter();
+  const tractor = router.query;
   return (
     <div>
       <div>
-        <Detailsline Text="Marka" Value={tractor?.tractor?.Marka} />
-        <Detailsline Text="Model" Value={tractor?.tractor?.Model} />
-        <Detailsline Text="Yıl" Value={tractor?.tractor?.Yil} />
-        <Detailsline Text="Ceker" Value={tractor?.tractor?.Ceker} />
-        <Detailsline Text="Ruhsat" Value={tractor?.tractor?.Ruhsat} />
-        <Detailsline Text="Plaka" Value={tractor?.tractor?.Plaka} />
-        <Detailsline Text="Saat" Value={tractor?.tractor?.Saat} />
-        <Detailsline
-          Text="Muayene Tarihi"
-          Value={tractor?.tractor?.Muayene_Tarihi}
-        />
+        <Detailsline Text="Marka" Value={tractor?.marka} />
+        <Detailsline Text="Model" Value={tractor?.model} />
+        <Detailsline Text="Yıl" Value={tractor?.yil} />
+        <Detailsline Text="Ceker" Value={tractor?.ceker} />
+        <Detailsline Text="Ruhsat" Value={tractor?.ruhsat} />
+        <Detailsline Text="Plaka" Value={tractor?.plaka} />
+        <Detailsline Text="Saat" Value={tractor?.saat} />
+        <Detailsline Text="Muayene Tarihi" Value={tractor?.muayene} />
         <Detailsline
           className={styles.Fiyat}
           Text="Fiyat"
-          Value={tractor?.tractor?.Fiyat}
+          Value={tractor?.fiyat}
         />
-        <Detailsline
-          Text="Kredi Miktarı"
-          Value={tractor?.tractor?.Kredi_Miktari}
-        />
+        <Detailsline Text="Kredi Miktarı" Value={tractor?.kredi} />
         <Detailsline
           className={styles.Aciklama}
           Text="Açıklama"
-          Value={tractor?.tractor?.Aciklama}
+          Value={tractor?.aciklama}
         />
       </div>
     </div>

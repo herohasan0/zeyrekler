@@ -19,6 +19,8 @@ function List({ tractors }) {
             Ruhsat={tractor?.Ruhsat}
             Saat={tractor?.Saat}
             Fiyat={tractor?.Fiyat}
+            Plaka={tractor?.Plaka}
+            Aciklama={tractor?.Aciklama}
             Muayene={tractor?.Muayene_Tarihi}
             Numb={`${numb++}-`}
           ></Line>

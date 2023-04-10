@@ -49,7 +49,10 @@ function Line({ ...props }) {
   }
 
   return (
-    <Link href="/[id]" as={props?.id}>
+    <Link
+      href={`/tractor?marka=${props?.Marka}&model=${props?.Model}&yil=${props?.Yil}&ceker=${props?.Ceker}&ruhsat=${props?.Ruhsat}&saat=${props?.Saat}&fiyat=${props?.Fiyat}&muayene=${props?.Muayene}&aciklama=${props?.Aciklama}&id=${props?.id}&plaka=${props?.Plaka}&kredi=${props?.Kredi}`}
+      as={`/tractor?marka=${props?.Marka}&model=${props?.Model}&yil=${props?.Yil}&ceker=${props?.Ceker}&ruhsat=${props?.Ruhsat}&saat=${props?.Saat}&fiyat=${props?.Fiyat}&muayene=${props?.Muayene}&aciklama=${props?.Aciklama}&id=${props?.id}&plaka=${props?.Plaka}&kredi=${props?.Kredi}`}
+    >
       <a>
         <div className={!owner ? styles.Blue : styles.None}>
           <div
